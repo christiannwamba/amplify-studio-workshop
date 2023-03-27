@@ -1,8 +1,10 @@
 import { View, Flex } from "@aws-amplify/ui-react";
 import React from "react";
-import { PostCardCollection, PostCreateForm } from './ui-components'
+import { PostCardCollection, PostCreateForm, PostUpdateForm } from './ui-components'
+import Modal from './components/Modal'
 
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
   return (
     <View width="100%">
       <Flex justifyContent="center" alignItems="center" direction="column">
@@ -18,7 +20,7 @@ export default function App() {
                 overrides: {
                   Button36852910: {
                     onClick: () => {
-                      console.log(item)
+                      setIsModalOpen(true)
                     }
                   }
                 }
@@ -28,7 +30,9 @@ export default function App() {
         </View>
       </Flex>
 
-      {/* Post Modal: Update form */}
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} title="Edit Post">
+        <PostUpdateForm />
+      </Modal>
     </View>
   );
 }
