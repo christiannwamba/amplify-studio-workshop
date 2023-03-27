@@ -1,6 +1,6 @@
 import { View, Flex } from "@aws-amplify/ui-react";
 import React from "react";
-
+import { PostCardCollection } from './ui-components'
 
 export default function App() {
   return (
@@ -10,7 +10,9 @@ export default function App() {
           <Flex justifyContent="center" alignItems="center" direction="column">
             <View width="32rem">{/* Post: Create form */}</View>
           </Flex>
-          <View marginTop="32px">{/* Post: Collection */}</View>
+          <View marginTop="32px">
+            <PostCardCollection />
+          </View>
         </View>
       </Flex>
 
