@@ -1,0 +1,26 @@
+.dialog {
+    position: relative;
+    z-index: 50;
+  }
+  
+  .dialog-wrapper {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dialog-content {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 32rem;
+    border-radius: 0.25rem;
+    padding: 30px;
+    border: 1px solid black;
+  }
+  
