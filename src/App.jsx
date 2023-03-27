@@ -1,5 +1,6 @@
 import { View, Flex } from "@aws-amplify/ui-react";
 import React from "react";
+import { Hub } from "aws-amplify";
 import {
   PostCardCollection,
   PostCreateForm,
@@ -10,7 +11,13 @@ import Modal from "./components/Modal";
 export default function App() {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [post, setPost] = React.useState({});
-
+  React.useEffect(() => {
+    Hub.listen("datastore", (capsule) => {
+      if (capsule.payload.event === "outboxMutationProcessed") {
+        setIsModalOpen(false);
+      }
+    });
+  }, []);
   return (
     <View width="100%">
       <Flex justifyContent="center" alignItems="center" direction="column">
