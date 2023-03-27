@@ -13,7 +13,17 @@ export default function App() {
             </View>
           </Flex>
           <View marginTop="32px">
-            <PostCardCollection />
+            <PostCardCollection overrideItems={({item}) => {
+              return {
+                overrides: {
+                  Button36852910: {
+                    onClick: () => {
+                      console.log(item)
+                    }
+                  }
+                }
+              }
+            }} />
           </View>
         </View>
       </Flex>
